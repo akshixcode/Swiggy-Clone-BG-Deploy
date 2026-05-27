@@ -2,9 +2,9 @@ version: 0.2
 
 env:
   parameter-store:
-    DOCKER_REGISTRY_USERNAME: /cicd/docker-credentials/username
+    DOCKER_REGISTRY_USERNAME: /cicd/docker-credentials/akshita123
     DOCKER_REGISTRY_PASSWORD: /cicd/docker-credentials/password
-    DOCKER_REGISTRY_URL: /cicd/docker-registry/url
+    DOCKER_REGISTRY_URL: /cicd/docker-registry/docker.io
     SONAR_TOKEN: /cicd/sonar/sonar-token
 phases:
   install:
@@ -56,8 +56,8 @@ post_build:
     - aws ses send-email \
         --from "madithati123@gmail.com" \
         --to "madithati123@gmail.com" \
-        --subject "CodeBuild Status: $CODEBUILD_BUILD_ID" \
-        --text "Build status: $CODEBUILD_BUILD_STATUS" \
+        --subject "CodeBuild Status: swiggy-build:8e21" \
+        --text "Build status: SUCCEEDED" \
         --region "us-east-1" # Update with your preferred AWS region
 
 
